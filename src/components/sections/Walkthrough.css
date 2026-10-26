@@ -1,0 +1,426 @@
+.walkthrough-section {
+  padding-top: var(--space-6xl);
+  padding-bottom: var(--space-7xl);
+  background-color: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.walkthrough-timeline-container {
+  position: relative;
+  max-width: 1100px;
+  margin: var(--space-4xl) auto 0;
+  padding: 0 var(--space-md);
+}
+
+/* Continuous Red Accent Line running alongside walkthrough */
+.walkthrough-spine {
+  position: absolute;
+  top: 40px;
+  bottom: 80px;
+  width: 3px;
+  background-color: rgba(198, 40, 40, 0.15); /* Soft baseline red */
+  border-radius: var(--radius-pill);
+  z-index: 1;
+}
+
+/* On mobile/tablet, spine is pinned on left */
+@media (max-width: 991px) {
+  .walkthrough-spine {
+    left: 28px;
+  }
+}
+
+/* On desktop, spine runs down the center between alternating cards */
+@media (min-width: 992px) {
+  .walkthrough-spine {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Active red progress fill */
+.walkthrough-spine-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, var(--color-red-line) 0%, #D32F2F 70%, var(--color-primary) 100%);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 10px var(--color-red-line-glow);
+  transition: height 150ms linear;
+}
+
+/* Individual Walkthrough Step */
+.walkthrough-step {
+  position: relative;
+  margin-bottom: clamp(var(--space-5xl), 8vw, var(--space-7xl));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: center;
+  z-index: 2;
+  min-width: 0;
+}
+
+@media (min-width: 992px) {
+  .walkthrough-step {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5xl);
+  }
+
+  /* Alternating layout for desktop */
+  .walkthrough-step.alternate .walkthrough-text-col {
+    order: 2;
+  }
+  .walkthrough-step.alternate .walkthrough-phone-col {
+    order: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .walkthrough-step {
+    padding-left: 56px;
+  }
+}
+
+/* Step Marker Node on the Red Line */
+.step-marker-node {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 3px solid var(--color-red-line);
+  box-shadow: 0 0 0 5px var(--color-background), var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-red-line);
+  z-index: 3;
+  transition: all var(--transition-normal);
+}
+
+.step-marker-node.active {
+  background-color: var(--color-red-line);
+  color: #FFFFFF;
+  box-shadow: 0 0 0 6px rgba(198, 40, 40, 0.2), var(--shadow-md);
+  transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+  .step-marker-node {
+    left: 10px;
+    top: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .step-marker-node {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .step-marker-node.active {
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* Text Column */
+.walkthrough-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.step-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-red-line);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.step-heading {
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.step-description {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.step-detail-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+.step-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.9375rem;
+  min-width: 0;
+}
+
+.step-detail-label {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.step-detail-desc {
+  color: var(--color-text-secondary);
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .step-detail-item {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .step-detail-label {
+    min-width: 0;
+  }
+}
+
+/* Phone Column: High-Fidelity Kazi Screen Render */
+.walkthrough-phone-col {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.walkthrough-phone-frame {
+  width: 100%;
+  max-width: 320px;
+  background-color: #121A16;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: var(--shadow-lg), 0 0 0 1px #2B3832;
+  transition: transform var(--transition-smooth);
+}
+
+.walkthrough-phone-frame:hover {
+  transform: translateY(-4px);
+}
+
+.screen-wrapper {
+  background-color: var(--color-background);
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 570px;
+  position: relative;
+}
+
+/* Screen Top Bar */
+.mini-status-bar {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+.mini-app-header {
+  padding: 6px 14px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.mini-app-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mini-screen-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Specific Screen Styles inside mini-phone */
+.mini-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.mini-card-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.mini-card-val {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Transaction List Item */
+.mini-tx-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.mini-tx-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-tx-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+/* Debts List Item */
+.mini-debt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.mini-debt-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.mini-debt-btn {
+  padding: 3px 8px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* Products List Item */
+.mini-product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.mini-stock-pill {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.mini-stock-pill.green {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.mini-stock-pill.orange {
+  background-color: var(--color-warning-soft);
+  color: #B25300;
+}
+
+/* PIN Screen */
+.mini-pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.mini-pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+}
+
+.mini-pin-dot.filled {
+  background-color: var(--color-primary);
+}
+
+.mini-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.mini-key-btn {
+  height: 38px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}

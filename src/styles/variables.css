@@ -1,0 +1,85 @@
+:root {
+  /* Official Kazi Brand Palette (from Kazi/src/theme/index.ts) */
+  --color-primary: #007A5E;
+  --color-primary-dark: #00614B;
+  --color-primary-soft: #E3F2EC;
+  --color-primary-rgb: 0, 122, 94;
+
+  --color-accent: #E8A33D;
+  --color-accent-soft: #FDF3E0;
+  --color-accent-rgb: 232, 163, 61;
+
+  --color-background: #F7F4EE;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F2EEE6;
+  --color-surface-hover: #ECE7DE;
+
+  --color-text-primary: #1E2A26;
+  --color-text-secondary: #5C6B64;
+  --color-text-muted: #9AA69F;
+  --color-text-on-primary: #FFFFFF;
+
+  --color-border: #E3DED4;
+  --color-border-subtle: #EDE9E0;
+
+  --color-success: #1E8E3E;
+  --color-success-soft: #E6F4EA;
+
+  --color-error: #C62828;
+  --color-error-soft: #FCEBEB;
+
+  --color-warning: #ED6C02;
+  --color-warning-soft: #FEF0E1;
+
+  --color-disabled: #E5E0D6;
+  --color-disabled-text: #A79B8C;
+
+  /* Red-line walkthrough visual accent */
+  --color-red-line: #C62828;
+  --color-red-line-glow: rgba(198, 40, 40, 0.25);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing Scale (matching Kazi mobile theme) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+  --space-5xl: 48px;
+  --space-6xl: 64px;
+  --space-7xl: 80px;
+
+  /* Radii Scale */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(30, 42, 38, 0.05), 0 1px 2px rgba(30, 42, 38, 0.03);
+  --shadow-md: 0 4px 12px rgba(30, 42, 38, 0.07), 0 2px 4px rgba(30, 42, 38, 0.04);
+  --shadow-lg: 0 12px 28px rgba(30, 42, 38, 0.09), 0 4px 8px rgba(30, 42, 38, 0.05);
+  --shadow-xl: 0 20px 40px rgba(30, 42, 38, 0.12), 0 8px 16px rgba(30, 42, 38, 0.06);
+  --shadow-phone: 0 24px 60px -12px rgba(0, 122, 94, 0.18), 0 12px 24px -8px rgba(30, 42, 38, 0.15);
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 72px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(0, 122, 94, 0.35);
+}

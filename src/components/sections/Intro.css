@@ -1,0 +1,103 @@
+.intro-section {
+  padding-top: var(--space-6xl);
+  padding-bottom: var(--space-6xl);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-top: var(--space-4xl);
+}
+
+@media (min-width: 768px) {
+  .intro-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.intro-card {
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.intro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.intro-card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xs);
+}
+
+.intro-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.intro-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.intro-card-contrast {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.8125rem;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quote-banner {
+  margin-top: var(--space-5xl);
+  background: linear-gradient(135deg, var(--color-primary-soft) 0%, rgba(253, 243, 224, 0.6) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .quote-banner {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+}
+
+.quote-text h4 {
+  font-size: 1.35rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.quote-text p {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
