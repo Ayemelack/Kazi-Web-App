@@ -71,10 +71,17 @@
   backdrop-filter: blur(6px);
 }
 
+.live-preview-pill-active {
+  background-color: rgba(16, 124, 65, 0.88);
+  border-color: rgba(52, 211, 153, 0.45);
+  box-shadow: 0 0 10px rgba(16, 124, 65, 0.4);
+}
+
 .live-preview-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-sm) var(--space-lg);
   margin-top: var(--space-md);
   color: var(--color-text-secondary);
@@ -82,11 +89,90 @@
   font-weight: 600;
 }
 
-.live-preview-meta span {
+.live-preview-meta-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-lg);
+}
+
+.live-preview-meta span,
+.live-preview-meta-stats span {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
+
+.live-preview-voice-active-icon {
+  color: var(--color-primary);
+  animation: live-voice-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes live-voice-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.8;
+  }
+}
+
+.live-preview-voice-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-preview-voice-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.live-preview-voice-btn:hover {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+.live-preview-voice-btn.is-active {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary);
+}
+
+.live-preview-voice-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.live-preview-voice-btn-replay:hover {
+  transform: rotate(-15deg);
+}
+
+@media (max-width: 640px) {
+  .live-preview-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
 
 .live-preview-chapters {
   background-color: var(--color-surface);
