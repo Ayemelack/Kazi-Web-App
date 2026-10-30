@@ -24,15 +24,25 @@ export const LivePreview: React.FC = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    try {
-      video.currentTime = seconds;
-    } catch {
+    const playFrom = () => {
+      try {
+        video.currentTime = seconds;
+      } catch {
+        return;
+      }
+
+      void video.play().catch(() => {
+        // Browsers may block playback until the user interacts with the native controls.
+      });
+    };
+
+    if (video.readyState >= 1) {
+      playFrom();
       return;
     }
 
-    void video.play().catch(() => {
-      // Browsers may block playback until the user interacts with the native controls.
-    });
+    video.addEventListener('loadedmetadata', playFrom, { once: true });
+    video.load();
   };
 
   return (
@@ -55,13 +65,13 @@ export const LivePreview: React.FC = () => {
                 className="live-preview-video"
                 controls
                 playsInline
-                preload="metadata"
+                preload="none"
                 poster="/assets/kazi-live-demo-poster.jpg"
                 aria-label="Kazi live preview: a two minute forty-two second guided tour of the Kazi mobile app"
               >
-                <source src="/assets/kazi-live-demo.mp4" type="video/mp4" />
+                <source src="/assets/kazi-live-demo-v2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.{' '}
-                <a href="/assets/kazi-live-demo.mp4">Download the Kazi demo video</a>.
+                <a href="/assets/kazi-live-demo-v2.mp4">Download the Kazi demo video</a>.
               </video>
 
               <div className="live-preview-overlay" aria-hidden="true">
