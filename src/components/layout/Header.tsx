@@ -10,6 +10,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'How It Works', href: '#walkthrough' },
+  { label: 'Live Preview', href: '#live-preview' },
   { label: 'Why Kazi', href: '#about' },
   { label: 'Features', href: '#features' },
   { label: 'Trilingual Demo', href: '#interactive-preview' },

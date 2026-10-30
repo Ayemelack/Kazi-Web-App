@@ -5,7 +5,6 @@ import {
   Package,
   Scissors,
   HandCoins,
-  CheckCircle2,
   Calendar,
   AlertTriangle,
   Lock,
@@ -78,39 +77,12 @@ export const Walkthrough: React.FC = () => {
       problemSolved: 'No complicated registration forms, no mandatory bank account linking, and no confusing accounting software onboarding.',
       howToUse: 'Open Kazi, tap Create Account, enter your basic profile name, and confirm your business name to open your notebook immediately.',
       renderScreen: () => (
-        <div className="screen-wrapper">
-          <div className="mini-status-bar">
-            <span>5:31</span>
-            <span>100% 🔋</span>
-          </div>
-          <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-            <img
-              src="/assets/welcome-screen-image.jpeg"
-              alt="Kazi Welcome Screen with Shopkeeper"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-            <div style={{ position: 'absolute', bottom: 10, left: 10, background: '#FFFFFF', padding: '4px 10px', borderRadius: '16px', fontSize: '10px', fontWeight: 700, color: 'var(--color-primary-dark)', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>
-              <CheckCircle2 size={12} color="var(--color-success)" />
-              <span>+2,400 FCFA Recorded</span>
-            </div>
-          </div>
-          <div style={{ padding: '16px 14px', display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <KaziMark size={36} />
-            </div>
-            <div style={{ fontWeight: 800, fontSize: '18px', color: 'var(--color-text-primary)' }}>Your business, kept simple.</div>
-            <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-              Keep track of your sales, expenses, products and debts in one simple place.
-            </div>
-            <div style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <div style={{ background: 'var(--color-primary)', color: '#FFFFFF', padding: '9px', borderRadius: '10px', fontSize: '12px', fontWeight: 700 }}>
-                Create account
-              </div>
-              <div style={{ background: '#FFFFFF', color: 'var(--color-primary)', border: '1.5px solid var(--color-primary)', padding: '8px', borderRadius: '10px', fontSize: '12px', fontWeight: 700 }}>
-                Sign in
-              </div>
-            </div>
-          </div>
+        <div className="screen-wrapper welcome-screen-wrapper">
+          <img
+            src="/assets/welcome-screen-image.jpeg"
+            alt="Kazi mobile welcome screen showing the Kazi logo, the tagline Your business, kept simple, and the Create account and Sign in buttons"
+            className="welcome-screen-image"
+          />
         </div>
       )
     },

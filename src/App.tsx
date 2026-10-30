@@ -3,6 +3,7 @@ import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import Intro from './components/sections/Intro';
 import Walkthrough from './components/sections/Walkthrough';
+import LivePreview from './components/sections/LivePreview';
 import InteractiveDemo from './components/sections/InteractiveDemo';
 import Features from './components/sections/Features';
 import Download from './components/sections/Download';
@@ -24,6 +25,7 @@ export function App() {
         <Hero />
         <Intro />
         <Walkthrough />
+        <LivePreview />
         <InteractiveDemo />
         <Features />
         <Download />
