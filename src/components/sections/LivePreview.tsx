@@ -8,6 +8,11 @@ interface Chapter {
   seconds: number;
 }
 
+const DEMO_VIDEO_URL =
+  'https://cdn.jsdelivr.net/gh/Ayemelack/Kazi-Web-App@845a1b0/public/assets/kazi-live-demo-v3.mp4';
+const DEMO_POSTER_URL =
+  'https://cdn.jsdelivr.net/gh/Ayemelack/Kazi-Web-App@845a1b0/public/assets/kazi-live-demo-v3-poster.jpg';
+
 const CHAPTERS: Chapter[] = [
   { label: 'Welcome & setup', time: '0:00', seconds: 0 },
   { label: 'Home dashboard', time: '0:23', seconds: 23 },
@@ -66,12 +71,12 @@ export const LivePreview: React.FC = () => {
                 controls
                 playsInline
                 preload="none"
-                poster="/assets/kazi-live-demo-v3-poster.jpg"
+                poster={DEMO_POSTER_URL}
                 aria-label="Kazi live preview: a two minute forty-two second guided tour of the Kazi mobile app"
               >
-                <source src="/assets/kazi-live-demo-v3.mp4" type="video/mp4" />
+                <source src={DEMO_VIDEO_URL} type="video/mp4" />
                 Your browser does not support the video tag.{' '}
-                <a href="/assets/kazi-live-demo-v3.mp4">Download the Kazi demo video</a>.
+                <a href={DEMO_VIDEO_URL}>Download the Kazi demo video</a>.
               </video>
 
               <div className="live-preview-overlay" aria-hidden="true">
