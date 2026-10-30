@@ -66,12 +66,12 @@ export const LivePreview: React.FC = () => {
                 controls
                 playsInline
                 preload="none"
-                poster="/assets/kazi-live-demo-poster.jpg"
+                poster="/assets/kazi-live-demo-v3-poster.jpg"
                 aria-label="Kazi live preview: a two minute forty-two second guided tour of the Kazi mobile app"
               >
-                <source src="/assets/kazi-live-demo-v2.mp4" type="video/mp4" />
+                <source src="/assets/kazi-live-demo-v3.mp4" type="video/mp4" />
                 Your browser does not support the video tag.{' '}
-                <a href="/assets/kazi-live-demo-v2.mp4">Download the Kazi demo video</a>.
+                <a href="/assets/kazi-live-demo-v3.mp4">Download the Kazi demo video</a>.
               </video>
 
               <div className="live-preview-overlay" aria-hidden="true">
